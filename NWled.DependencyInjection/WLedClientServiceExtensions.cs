@@ -20,7 +20,7 @@ public static class WLedClientServiceExtensions
         services.Configure(configure);
 
         // Register WLedClient as a singleton service
-        services.AddSingleton(provider =>
+        services.AddSingleton<IWLedClient>(provider =>
         {
             // Retrieve the configured WledSettings
             var options = provider.GetRequiredService<IOptions<WledSettings>>();

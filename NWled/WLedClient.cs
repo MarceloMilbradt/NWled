@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace NWLED;
 
-public sealed class WLedClient
+public sealed class WLedClient : IWLedClient
 {
     private readonly HttpClient _client;
 
