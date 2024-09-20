@@ -11,6 +11,7 @@ internal sealed class StringContentWithoutCharset : StringContent
     /// <param name="mediaType"></param>
     public StringContentWithoutCharset(string content, string mediaType) : base(content, Encoding.UTF8, mediaType)
     {
-        Headers.ContentType.CharSet = "";
+        if (Headers.ContentType != null)
+            Headers.ContentType.CharSet = "";
     }
 }

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWled", "NWled.csproj", "{32CF2407-AD6C-4816-85E4-7B8AA3772A14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWled.Tests", "..\NWled.Tests\NWled.Tests.csproj", "{9B03F8A6-B164-4D32-895D-0B5A2350D89C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWled.Tests", "..\NWled.Tests\NWled.Tests.csproj", "{9B03F8A6-B164-4D32-895D-0B5A2350D89C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWled.DependencyInjection", "..\NWled.DependencyInjection\NWled.DependencyInjection.csproj", "{81FB716C-E033-4EE4-B877-B21B9FE38674}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9B03F8A6-B164-4D32-895D-0B5A2350D89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B03F8A6-B164-4D32-895D-0B5A2350D89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B03F8A6-B164-4D32-895D-0B5A2350D89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81FB716C-E033-4EE4-B877-B21B9FE38674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81FB716C-E033-4EE4-B877-B21B9FE38674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81FB716C-E033-4EE4-B877-B21B9FE38674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81FB716C-E033-4EE4-B877-B21B9FE38674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
