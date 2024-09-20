@@ -2,8 +2,8 @@
 
 NWled is a .NET library for interacting with [WLED](https://github.com/Aircoookie/WLED) devices over HTTP. It provides an easy-to-use client for controlling and configuring your WLED lights through their [JSON API](https://github.com/Aircoookie/WLED/wiki/JSON-API).
 
-[![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)(https://www.nuget.org/packages/NWled/)]
-[![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)(https://www.nuget.org/packages/NWled.DependencyInjection/)]
+[![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)](https://www.nuget.org/packages/NWled/)
+[![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)](https://www.nuget.org/packages/NWled.DependencyInjection/)
 
 
 ## Features
