@@ -1,9 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
+		<PackageId>NWled</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Marcelo Milbradt</Authors>
+		<Description>A wrapper library for WLED to control LED strips easily.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/MarceloMilbradt/NWled</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/MarceloMilbradt/NWled</RepositoryUrl>
+		<Tags>wled led iot</Tags>
+	</PropertyGroup>
 </Project>
