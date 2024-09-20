@@ -5,92 +5,106 @@ NWled is a .NET library for interacting with [WLED](https://github.com/Aircoooki
 [![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)](https://www.nuget.org/packages/NWled/)
 [![install from nuget](http://img.shields.io/nuget/v/NWLED.svg?style=flat-square)](https://www.nuget.org/packages/NWled.DependencyInjection/)
 
-
 ## Features
 
-- Get information about connected WLED devices.
-- Control LED states, effects, and palettes.
-- Support for dependency injection with .NET Core.
-- Configurable through app settings.
+- **WLedClient**: A client to interact with WLed devices.
+- **Dependency Injection**: Simplified registration of the WLedClient in the DI container.
 
-## Installation
+## Getting Started
 
-You can install NWled via NuGet:
+### Installation
+
+You can install the NWled library via NuGet. Run the following command in your package manager console:
 
 ```bash
 dotnet add package NWled
 ```
 
-## Usage
+To install the Dependency Injection package, use:
 
-### Basic Setup
-
-First, register the `WLedClient` in your `Startup.cs` or wherever you configure your services:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddWLed(options =>
-    {
-        options.Url = "http://your-wled-device-url";
-    });
-}
+```bash
+dotnet add package NWled.DependencyInjection
 ```
 
-### Example Usage
+### Using the WLedClient
 
-Here’s an example of how to use the `WLedClient`:
+To use the `WLedClient`, follow these steps:
 
-```csharp
-public class YourService
-{
-    private readonly WLedClient _wledClient;
+1. **Create an instance of `WLedClient`:**
 
-    public YourService(WLedClient wledClient)
-    {
-        _wledClient = wledClient;
-    }
+   ```csharp
+   var client = new WLedClient("http://your-wled-device-ip");
+   ```
 
-    public async Task GetWledInformationAsync()
-    {
-        var info = await _wledClient.GetInformationAsync();
-        Console.WriteLine($"WLED Version: {info.VersionName}");
-    }
-}
-```
+2. **Make requests to the WLed API:**
 
-### Configuration
+   - **Get the current state:**
 
-You can configure the `WLedClient` settings in your `appsettings.json`:
+     ```csharp
+     var state = await client.GetStateAsync();
+     ```
 
-```json
-{
-  "Wled": {
-    "Url": "http://your-wled-device-url"
-  }
-}
-```
+   - **Get information about the device:**
+
+     ```csharp
+     var info = await client.GetInformationAsync();
+     ```
+
+   - **Post a new state:**
+
+     ```csharp
+     var stateRequest = new StateRequest { On = true, Brightness = 128 };
+     await client.PostAsync(stateRequest);
+     ```
+
+3. **Handle the results as needed:**
+
+   The responses can be handled as desired, depending on your application needs.
 
 ### Dependency Injection
 
-The `WLedClient` is registered as a singleton, and it can be configured using the `IOptions<WledSettings>` pattern.
+NWled provides an easy way to register the `WLedClient` using Dependency Injection.
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddWLed(Configuration.GetSection("Wled"));
-}
-```
+#### Registering WLedClient in DI
 
-## Contributing
+You can register the `WLedClient` in your DI container by using the `AddWLed` method:
 
-Contributions are welcome! If you have suggestions for improvements or find bugs, feel free to create an issue or submit a pull request.
+1. **Add the WLedClient:**
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddWLed("http://your-wled-device-ip");
+   }
+   ```
+
+2. **Using WLedClient in your application:**
+
+   After registration, you can inject `WLedClient` into your classes:
+
+   ```csharp
+   public class MyService
+   {
+       private readonly WLedClient _wledClient;
+
+       public MyService(WLedClient wledClient)
+       {
+           _wledClient = wledClient;
+       }
+
+       public async Task DoSomethingWithWLed()
+       {
+           var state = await _wledClient.GetStateAsync();
+           // Implement your logic here
+       }
+   }
+   ```
+
+
+### Conclusion
+
+NWled provides a straightforward way to integrate WLed device control into your .NET applications. Whether you prefer using the client directly or through Dependency Injection, NWled simplifies the process and allows you to focus on building your application.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
-## Author
-
-- Marcelo Milbradt ([@MarceloMilbradt](https://github.com/MarceloMilbradt))
-
