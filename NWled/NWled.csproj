@@ -12,6 +12,7 @@
 		<PackageProjectUrl>https://github.com/MarceloMilbradt/NWled</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/MarceloMilbradt/NWled</RepositoryUrl>
 		<Tags>wled led iot</Tags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <IsTrimmable>True</IsTrimmable>
@@ -21,4 +22,9 @@
 	  <IsTrimmable>True</IsTrimmable>
 	  <IsAotCompatible>True</IsAotCompatible>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Update="README.md">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>
